@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+<head th:replace="~{fragments/head:: head}"></head>
+<body>
+      <div th:replace="~{fragments/header :: header}" ></div>
+
+    
+<div class="login-wrapper">
+    <h1 class="text-center">Welcome Back! Please Log In</h1>
+<br>
+<br>
+
+    <p th:if="${success}" th:text="${success}" class="text-danger text-center mb-3"></p>
+
+    <form th:action="@{/login}" method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label" style="font-size: 1.8rem;">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div> 
+
+        <div class="mb-3">
+            <label for="password" class="form-label" style="font-size: 1.8rem;">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+
+        <div class="forgot-pass">
+            <a th:href="@{/forget_pass}">Forgot Password?</a>
+        </div>
+<br>
+  <div class="d-flex justify-content-center mt-4">
+    <button type="submit" class="custom-login-button">Login</button>
+</div>
+
+
+
+
+
+
+    </form>
+</div>
+
+     <footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
